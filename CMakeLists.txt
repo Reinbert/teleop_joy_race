@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(teleop_twist_joy)
+project(teleop_joy_race)
 
 find_package(catkin REQUIRED COMPONENTS geometry_msgs roscpp sensor_msgs)
 
@@ -43,14 +43,14 @@ if (CATKIN_ENABLE_TESTING)
   include_directories(include ${catkin_INCLUDE_DIRS})
 
   # Check axes and scaling.
-  add_rostest(test/differential_joy.test)
-  add_rostest(test/holonomic_joy.test)
-  add_rostest(test/six_dof_joy.test)
+#  add_rostest(test/differential_joy.test)
+#  add_rostest(test/holonomic_joy.test)
+#  add_rostest(test/six_dof_joy.test)
 
   # Check enable and turbo button logic.
-  add_rostest(test/no_enable_joy.test)
-  add_rostest(test/turbo_enable_joy.test)
-  add_rostest(test/only_turbo_joy.test)
-  add_rostest(test/turbo_angular_enable_joy.test)
-  add_rostest(test/turbo_angular_enable_joy_with_rosparam_map.test)
+#  add_rostest(test/no_enable_joy.test)
+#  add_rostest(test/turbo_enable_joy.test)
+#  add_rostest(test/only_turbo_joy.test)
+#  add_rostest(test/turbo_angular_enable_joy.test)
+#  add_rostest(test/turbo_angular_enable_joy_with_rosparam_map.test)
 endif()

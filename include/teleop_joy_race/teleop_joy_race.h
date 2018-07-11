@@ -1,6 +1,8 @@
 /**
 Software License Agreement (BSD)
 
+\authors   Reinhard Sprung <reinhard.sprung@gmail.com>
+\copyright Copyright (c) 2018, Reinhard Sprung, All rights reserved.
 \authors   Mike Purvis <mpurvis@clearpathrobotics.com>
 \copyright Copyright (c) 2014, Clearpath Robotics, Inc., All rights reserved.
 
@@ -22,27 +24,28 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCL
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef TELEOP_TWIST_JOY_TELEOP_TWIST_JOY_H
-#define TELEOP_TWIST_JOY_TELEOP_TWIST_JOY_H
+#ifndef TELEOP_JOY_RACE_TELEOP_JOY_RACE_H
+#define TELEOP_JOY_RACE_TELEOP_JOY_RACE_H
 
 namespace ros { class NodeHandle; }
 
-namespace teleop_twist_joy
+namespace teleop_joy_race
 {
 
 /**
- * Class implementing a basic Joy -> Twist translation.
+ * Class implementing a basic Joy -> Twist translation with racing game style controls
+ * Adapted from https://github.com/ros-teleop/teleop_twist_joy
  */
-class TeleopTwistJoy
+class TeleopJoyRace
 {
 public:
-  TeleopTwistJoy(ros::NodeHandle* nh, ros::NodeHandle* nh_param);
+  TeleopJoyRace(ros::NodeHandle* nh, ros::NodeHandle* nh_param);
 
 private:
   struct Impl;
   Impl* pimpl_;
 };
 
-}  // namespace teleop_twist_joy
+}  // namespace teleop_joy_race
 
-#endif  // TELEOP_TWIST_JOY_TELEOP_TWIST_JOY_H
+#endif  // TELEOP_JOY_RACE_TELEOP_JOY_RACE_H

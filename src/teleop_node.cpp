@@ -1,7 +1,8 @@
 /**
 Software License Agreement (BSD)
 
-\file      teleop_node.cpp
+\authors   Reinhard Sprung <reinhard.sprung@gmail.com>
+\copyright Copyright (c) 2018, Reinhard Sprung, All rights reserved.
 \authors   Mike Purvis <mpurvis@clearpathrobotics.com>
 \copyright Copyright (c) 2014, Clearpath Robotics, Inc., All rights reserved.
 
@@ -23,15 +24,15 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCL
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#include "ros/ros.h"
-#include "teleop_twist_joy/teleop_twist_joy.h"
+#include <ros/ros.h>
+#include "teleop_joy_race/teleop_joy_race.h"
 
 int main(int argc, char *argv[])
 {
-  ros::init(argc, argv, "teleop_twist_joy_node");
+  ros::init(argc, argv, "teleop_joy_race_node");
 
   ros::NodeHandle nh(""), nh_param("~");
-  teleop_twist_joy::TeleopTwistJoy joy_teleop(&nh, &nh_param);
+  teleop_joy_race::TeleopJoyRace joy_teleop(&nh, &nh_param);
 
   ros::spin();
 }

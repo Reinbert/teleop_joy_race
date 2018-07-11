@@ -1,0 +1,10 @@
+# On xbox360 controller Left and right trigger have their own axes.
+axis_accel: 5  # Right trigger
+axis_brake: 2  # Left trigger
+scale_accel: 1
+
+axis_steer: 0  # Left stick horizontal
+scale_steer: 1
+
+# Deadman button needs to be pressed to send cmd_vel messages. (0: default, -1: disable)
+button_deadman: 0
