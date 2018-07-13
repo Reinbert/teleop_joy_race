@@ -64,8 +64,9 @@ TeleopJoyRace::TeleopJoyRace(ros::NodeHandle* nh, ros::NodeHandle* nh_param)
   pimpl_ = new Impl;
   pimpl_->disable_msg_sent = false;
 
-  pimpl_->cmd_pub = nh->advertise<geometry_msgs::Twist>(nh_param->param<std::string>("/cmd_topic", "/cmd_vel"), 1, true);
   pimpl_->joy_sub = nh->subscribe<sensor_msgs::Joy>("/joy", 1, &TeleopJoyRace::Impl::joyCallback, pimpl_);
+  pimpl_->cmd_pub = nh->advertise<geometry_msgs::Twist>(nh_param->param<std::string>("cmd_topic", "/cmd_vel"), 1, true);
+  ROS_INFO("Command topic: %s", pimpl_->cmd_pub.getTopic().c_str());
 
   // Send a zero message
   geometry_msgs::Twist cmd_msg;
@@ -82,6 +83,8 @@ TeleopJoyRace::TeleopJoyRace(ros::NodeHandle* nh, ros::NodeHandle* nh_param)
     nh_param->param<int>("button_deadman", pimpl_->button_deadman, 0);
   else
     pimpl_->button_deadman = -1;
+
+  ROS_INFO("Deadman button: %i", pimpl_->button_deadman);
 }
 
 /**
@@ -118,11 +121,11 @@ void TeleopJoyRace::Impl::joyCallback(const sensor_msgs::Joy::ConstPtr& joy_msg)
 /**
  * TODO: Call this upon shutdown of the node.
  */
-void TeleopJoyRace::shutdown()
-{
-  // Send a zero message
-  geometry_msgs::Twist cmd_msg;
-  pimpl_->cmd_pub.publish(cmd_msg);
-}
+//void TeleopJoyRace::shutdown()
+//{
+//  // Send a zero message
+//  geometry_msgs::Twist cmd_msg;
+//  pimpl_->cmd_pub.publish(cmd_msg);
+//}
 
 }  // namespace teleop_joy_race

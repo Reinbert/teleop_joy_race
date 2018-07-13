@@ -40,6 +40,7 @@ class TeleopJoyRace
 {
 public:
   TeleopJoyRace(ros::NodeHandle* nh, ros::NodeHandle* nh_param);
+//  void shutdown();
 
 private:
   struct Impl;

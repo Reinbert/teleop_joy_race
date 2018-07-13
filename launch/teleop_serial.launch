@@ -8,7 +8,10 @@
 
   <!-- You can disable the deadman button by adding 'enable_deadman:=false' to the launch script. -->
   <!-- E.g. 'roslaunch teleop_joy_race teleop.launch enable_deadman:=false' USE AT YOUR OWN RISK -->
-  <arg name="enable_deadman" default="true" />
+  <arg name="enable_deadman" default="false" />
+  
+  <node pkg="rosserial_server" type="socket_node" name="rosserial_server" />
+  <node pkg="rosserial_python" type="message_info_service.py" name="rosserial_message_info" />
   
   <node pkg="joy" type="joy_node" name="joy_node" output="screen">
     <param name="dev" value="$(arg joy_dev)" type="string" />
