@@ -7,8 +7,8 @@
   <arg name="cmd_topic" default="/cmd_vel" />
 
   <!-- You can disable the deadman button by adding 'enable_deadman:=false' to the launch script. -->
-  <!-- E.g. 'roslaunch teleop_joy_race teleop.launch enable_deadman:=false' USE AT YOUR OWN RISK -->
-  <arg name="enable_deadman" default="false" />
+  <!-- E.g. 'roslaunch teleop_joy_race teleop_serial.launch enable_deadman:=false' USE AT YOUR OWN RISK -->
+  <arg name="enable_deadman" default="true" />
   
   <node pkg="rosserial_server" type="socket_node" name="rosserial_server" />
   <node pkg="rosserial_python" type="message_info_service.py" name="rosserial_message_info" />
