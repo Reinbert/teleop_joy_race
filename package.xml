@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <package>
-  <name>teleop_joy_race</name>
-  <version>0.1.0</version>
+  <name>teleop_twist_racing</name>
+  <version>0.2.0</version>
   <description>Simple joystick teleop for twist robots with racing game control style.</description>
   <maintainer email="reinhard.sprung@gmail.com">Reinhard Sprung</maintainer>
 
   <license>BSD</license>
 
-  <url type="website">https://github.com/Reinbert/teleop_joy_race</url>
-  <author email="reinhard.sprung@gmai.com">Reinhard Sprung</author>
+  <url type="website">https://github.com/Reinbert/teleop_twist_racing</url>
+  <author email="reinhard.sprung@gmail.com">Reinhard Sprung</author>
   <author email="mpurvis@clearpathrobotics.com">Mike Purvis</author>
 
   <buildtool_depend>catkin</buildtool_depend>

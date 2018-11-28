@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(teleop_joy_race)
+project(teleop_twist_racing)
 
 find_package(catkin REQUIRED COMPONENTS geometry_msgs roscpp sensor_msgs)
 

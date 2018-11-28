@@ -24,22 +24,22 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCL
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef TELEOP_JOY_RACE_TELEOP_JOY_RACE_H
-#define TELEOP_JOY_RACE_TELEOP_JOY_RACE_H
+#ifndef TELEOP_TWIST_RACING_TELEOP_TWIST_RACING_H
+#define TELEOP_TWIST_RACING_TELEOP_TWIST_RACING_H
 
 namespace ros { class NodeHandle; }
 
-namespace teleop_joy_race
+namespace teleop_twist_racing
 {
 
 /**
  * Class implementing a basic Joy -> Twist translation with racing game style controls
  * Adapted from https://github.com/ros-teleop/teleop_twist_joy
  */
-class TeleopJoyRace
+class TeleopTwistRacing
 {
 public:
-  TeleopJoyRace(ros::NodeHandle* nh, ros::NodeHandle* nh_param);
+  TeleopTwistRacing(ros::NodeHandle* nh, ros::NodeHandle* nh_param);
 //  void shutdown();
 
 private:
@@ -47,6 +47,6 @@ private:
   Impl* pimpl_;
 };
 
-}  // namespace teleop_joy_race
+}  // namespace teleop_twist_racing
 
-#endif  // TELEOP_JOY_RACE_TELEOP_JOY_RACE_H
+#endif  // TELEOP_TWIST_RACING_TELEOP_TWIST_RACING_H

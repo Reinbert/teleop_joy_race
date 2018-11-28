@@ -25,14 +25,14 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 */
 
 #include <ros/ros.h>
-#include "teleop_joy_race/teleop_joy_race.h"
+#include "teleop_twist_racing/teleop_twist_racing.h"
 
 int main(int argc, char *argv[])
 {
   ros::init(argc, argv, "teleop_joy_race_node");
 
   ros::NodeHandle nh(""), nh_param("~");
-  teleop_joy_race::TeleopJoyRace joy_teleop(&nh, &nh_param);
+  teleop_twist_racing::TeleopTwistRacing joy_teleop(&nh, &nh_param);
 
   ros::spin();
 }

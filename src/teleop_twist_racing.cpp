@@ -27,9 +27,9 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 #include <ros/ros.h>
 #include <sensor_msgs/Joy.h>
 #include <geometry_msgs/Twist.h>
-#include "teleop_joy_race/teleop_joy_race.h"
+#include "teleop_twist_racing/teleop_twist_racing.h"
 
-namespace teleop_joy_race
+namespace teleop_twist_racing
 {
 
 float map(float x, float in_min, float in_max, float out_min, float out_max) {
@@ -38,10 +38,10 @@ float map(float x, float in_min, float in_max, float out_min, float out_max) {
 
 /**
  * Internal members of class. This is the pimpl idiom, and allows more flexibility in adding
- * parameters later without breaking ABI compatibility, for robots which link TeleopJoyRace
+ * parameters later without breaking ABI compatibility, for robots which link TeleopTwistRacing
  * directly into base nodes.
  */
-struct TeleopJoyRace::Impl
+struct TeleopTwistRacing::Impl
 {
   void joyCallback(const sensor_msgs::Joy::ConstPtr& joy);
 
@@ -55,16 +55,16 @@ struct TeleopJoyRace::Impl
 };
 
 /**
- * Constructs TeleopJoyRace.
+ * Constructs TeleopTwistRacing.
  * \param nh NodeHandle to use for setting up the publisher and subscriber.
  * \param nh_param NodeHandle to use for searching for configuration parameters.
  */
-TeleopJoyRace::TeleopJoyRace(ros::NodeHandle* nh, ros::NodeHandle* nh_param)
+TeleopTwistRacing::TeleopTwistRacing(ros::NodeHandle* nh, ros::NodeHandle* nh_param)
 {
   pimpl_ = new Impl;
   pimpl_->disable_msg_sent = false;
 
-  pimpl_->joy_sub = nh->subscribe<sensor_msgs::Joy>("/joy", 1, &TeleopJoyRace::Impl::joyCallback, pimpl_);
+  pimpl_->joy_sub = nh->subscribe<sensor_msgs::Joy>("/joy", 1, &TeleopTwistRacing::Impl::joyCallback, pimpl_);
   pimpl_->cmd_pub = nh->advertise<geometry_msgs::Twist>(nh_param->param<std::string>("cmd_topic", "/cmd_vel"), 1, true);
   ROS_INFO("Command topic: %s", pimpl_->cmd_pub.getTopic().c_str());
 
@@ -91,7 +91,7 @@ TeleopJoyRace::TeleopJoyRace(ros::NodeHandle* nh, ros::NodeHandle* nh_param)
  * Handles /Joy callbacks and transforms them to Twist messages.
  * @param joy_msg
  */
-void TeleopJoyRace::Impl::joyCallback(const sensor_msgs::Joy::ConstPtr& joy_msg)
+void TeleopTwistRacing::Impl::joyCallback(const sensor_msgs::Joy::ConstPtr& joy_msg)
 {
   geometry_msgs::Twist cmd_msg;
 
@@ -100,7 +100,7 @@ void TeleopJoyRace::Impl::joyCallback(const sensor_msgs::Joy::ConstPtr& joy_msg)
   {
     // ROS_INFO("axis_accel %f | axis_brake %f", joy_msg->axes[axis_accel], joy_msg->axes[axis_brake]);
 
-    // Map from [1 .. -1] to [0 .. 1] (Note that the triggers report 1 when released and -1 when triggered).
+    // Map from [1 .. -1] to [0 .. 1] (Note that the xbox360 triggers report 1 when released and -1 when triggered).
     float vel = map(joy_msg->axes[axis_accel], 1, -1, 0, 1);
     vel -= map(joy_msg->axes[axis_brake], 1, -1, 0, 1);
 
