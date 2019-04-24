@@ -2,7 +2,7 @@
 Software License Agreement (BSD)
 
 \authors   Reinhard Sprung <reinhard.sprung@gmail.com>
-\copyright Copyright (c) 2018, Reinhard Sprung, All rights reserved.
+\copyright Copyright (c) 2019, Reinhard Sprung, All rights reserved.
 \authors   Mike Purvis <mpurvis@clearpathrobotics.com>
 \copyright Copyright (c) 2014, Clearpath Robotics, Inc., All rights reserved.
 
@@ -25,14 +25,14 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 */
 
 #include <ros/ros.h>
-#include "teleop_twist_racing/teleop_twist_racing.h"
+#include "teleop_twist_gamepad/teleop_twist_gamepad.h"
 
 int main(int argc, char *argv[])
 {
-  ros::init(argc, argv, "teleop_joy_race_node");
+  ros::init(argc, argv, "teleop_twist_gamepad_node");
 
   ros::NodeHandle nh(""), nh_param("~");
-  teleop_twist_racing::TeleopTwistRacing joy_teleop(&nh, &nh_param);
+  teleop_twist_gamepad::TeleopTwistGamepad joy_teleop(&nh, &nh_param);
 
   ros::spin();
 }

@@ -2,7 +2,7 @@
 Software License Agreement (BSD)
 
 \authors   Reinhard Sprung <reinhard.sprung@gmail.com>
-\copyright Copyright (c) 2018, Reinhard Sprung, All rights reserved.
+\copyright Copyright (c) 2019, Reinhard Sprung, All rights reserved.
 \authors   Mike Purvis <mpurvis@clearpathrobotics.com>
 \copyright Copyright (c) 2014, Clearpath Robotics, Inc., All rights reserved.
 
@@ -24,22 +24,22 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCL
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-#ifndef TELEOP_TWIST_RACING_TELEOP_TWIST_RACING_H
-#define TELEOP_TWIST_RACING_TELEOP_TWIST_RACING_H
+#ifndef TELEOP_TWIST_GAMEPAD_TELEOP_TWIST_GAMEPAD_H
+#define TELEOP_TWIST_GAMEPAD_TELEOP_TWIST_GAMEPAD_H
 
 namespace ros { class NodeHandle; }
 
-namespace teleop_twist_racing
+namespace teleop_twist_gamepad
 {
 
 /**
  * Class implementing a basic Joy -> Twist translation with racing game style controls
  * Adapted from https://github.com/ros-teleop/teleop_twist_joy
  */
-class TeleopTwistRacing
+class TeleopTwistGamepad
 {
 public:
-  TeleopTwistRacing(ros::NodeHandle* nh, ros::NodeHandle* nh_param);
+  TeleopTwistGamepad(ros::NodeHandle* nh, ros::NodeHandle* nh_param);
 //  void shutdown();
 
 private:
@@ -47,6 +47,6 @@ private:
   Impl* pimpl_;
 };
 
-}  // namespace teleop_twist_racing
+}  // namespace teleop_twist_gamepad
 
-#endif  // TELEOP_TWIST_RACING_TELEOP_TWIST_RACING_H
+#endif  // TELEOP_TWIST_GAMEPAD_TELEOP_TWIST_GAMEPAD_H

@@ -1,26 +1,28 @@
 <launch>
   <arg name="joy_config" default="xbox360" />
   <arg name="joy_dev" default="/dev/input/js0" />
-  <arg name="config_filepath" default="$(find teleop_twist_racing)/config/$(arg joy_config).config.yaml" />
+  <arg name="config_filepath" default="$(find teleop_twist_gamepad)/config/$(arg joy_config).config.yaml" />
 
   <arg name="autorepeat_rate" default="0.0" />
   <arg name="cmd_topic" default="/cmd_vel" />
 
   <!-- You can disable the deadman button by adding 'enable_deadman:=false' to the launch script. -->
-  <!-- E.g. 'roslaunch teleop_twist_racing teleop_serial.launch enable_deadman:=false' USE AT YOUR OWN RISK -->
+  <!-- E.g. 'roslaunch teleop_twist_gamepad teleop.launch enable_deadman:=false' USE AT YOUR OWN RISK -->
   <arg name="enable_deadman" default="true" />
-  
+
   <node pkg="rosserial_server" type="socket_node" name="rosserial_server" />
+  <!-- This is a service to help serial server communicate with microcontrollers -->
   <node pkg="rosserial_python" type="message_info_service.py" name="rosserial_message_info" />
-  
+
   <node pkg="joy" type="joy_node" name="joy_node" output="screen">
     <param name="dev" value="$(arg joy_dev)" type="string" />
     <param name="default_trig_val" value="true" /> <!-- Set this to get the correct trigger values upon startup -->
     <param name="deadzone" value="0.3" type="double" />
+    <param name="coalesce_interval" value="0.01" type="double" />
     <param name="autorepeat_rate" value="$(arg autorepeat_rate)" type="double" />
   </node>
 
-  <node pkg="teleop_twist_racing" name="teleop_twist_racing" type="teleop_node" output="screen">
+  <node pkg="teleop_twist_gamepad" name="teleop_twist_gamepad" type="teleop_node" output="screen">
     <rosparam command="load" file="$(arg config_filepath)" />
     <param name="joy_config" value="$(arg joy_config)" />
     <param name="cmd_topic" value="$(arg cmd_topic)" />

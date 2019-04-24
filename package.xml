@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <package>
-  <name>teleop_twist_racing</name>
-  <version>0.2.0</version>
-  <description>Simple joystick teleop for twist robots with racing game control style.</description>
+  <name>teleop_twist_gamepad</name>
+  <version>0.3.0</version>
+  <description>Simple tele-operation node for twist robots using a gamepad and racing game control style.</description>
   <maintainer email="reinhard.sprung@gmail.com">Reinhard Sprung</maintainer>
 
   <license>BSD</license>
 
-  <url type="website">https://github.com/Reinbert/teleop_twist_racing</url>
+  <url type="website">https://github.com/Reinbert/teleop_twist_gamepad</url>
   <author email="reinhard.sprung@gmail.com">Reinhard Sprung</author>
   <author email="mpurvis@clearpathrobotics.com">Mike Purvis</author>
 
