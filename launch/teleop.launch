@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
   <arg name="joy_config" default="xbox360" />
   <arg name="joy_dev" default="/dev/input/js0" />
@@ -9,7 +10,7 @@
   <!-- You can disable the deadman button by adding 'enable_deadman:=false' to the launch script. -->
   <!-- E.g. 'roslaunch teleop_twist_gamepad teleop.launch enable_deadman:=false' USE AT YOUR OWN RISK -->
   <arg name="enable_deadman" default="true" />
-  
+
   <node pkg="joy" type="joy_node" name="joy_node" output="screen">
     <param name="dev" value="$(arg joy_dev)" type="string" />
     <param name="default_trig_val" value="true" /> <!-- Set this to get the correct trigger values upon startup -->
